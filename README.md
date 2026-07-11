@@ -62,7 +62,7 @@ This depot contains external third party open source software copyright their re
 
 ### OpenHarmony (OHOS) Build
 
-This fork is based on NVIDIA PhysX SDK **4.1.1** (commit `e0b2c969`), with OpenHarmony (OHOS) cross-compilation support added on the `oh_4.1.1` branch.
+This fork is based on NVIDIA PhysX SDK **4.1.1** (commit `ae80dede`), with OpenHarmony (OHOS) cross-compilation support added on the `oh_4.1.1` branch.
 
 **Quick build:**
 
