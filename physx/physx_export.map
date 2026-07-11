@@ -1,0 +1,4 @@
+{
+    global: PhysX_*;
+    local: *;
+};
