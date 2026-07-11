@@ -1,2 +1,7 @@
-physx/bin/
+physx/bin/*
+!physx/bin/ohos.aarch64/
+physx/bin/ohos.aarch64/*
+!physx/bin/ohos.aarch64/release/
+physx/bin/ohos.aarch64/release/*.a
+physx/bin/ohos.aarch64/release/*.so
 physx/compiler/
