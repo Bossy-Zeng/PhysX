@@ -59,3 +59,5 @@ To build and run the Kapla Demo see [kaplademo/README.md](kaplademo/README.md).
 ## Acknowledgements
 
 This depot contains external third party open source software copyright their respective owners.  See [kaplademo/README.md](kaplademo/README.md) and [externals/README.md](externals/README.md) for details.
+
+Add OpenHarmony build Support.
