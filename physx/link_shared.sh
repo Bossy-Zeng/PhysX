@@ -1,7 +1,6 @@
 #!/bin/bash
 #
 # Link PhysX static libraries into a single shared library (.so) for OHOS
-# With C API wrapper and symbol hiding to avoid conflicts with Unity's built-in PhysX
 #
 
 set -e
@@ -35,22 +34,20 @@ echo "OHOS_NDK: $OHOS_NDK"
 echo "LIB_DIR: $LIB_DIR"
 echo "============================================"
 
-# Compile C API wrapper (with -fvisibility=hidden to hide C++ symbols)
+# Compile C API wrapper
 CAPI_SRC="$PHYSX_ROOT/source/c_api/PhysXCApi.cpp"
 CAPI_OBJ="$OUTPUT_DIR/PhysXCApi.o"
 echo "Compiling C API wrapper..."
-"$CLANGXX" --target=aarch64-linux-ohos --sysroot="$SYSROOT" -std=c++14 -O2 -fPIC -fvisibility=hidden -fno-strict-aliasing -DNDEBUG -DPX_PHYSX_STATIC_LIB -I"$PHYSX_ROOT/include" -I"$PHYSX_ROOT/../pxshared/include" -c "$CAPI_SRC" -o "$CAPI_OBJ"
+"$CLANGXX" --target=aarch64-linux-ohos --sysroot="$SYSROOT" -std=c++14 -O2 -fPIC -fno-strict-aliasing -DNDEBUG -DPX_PHYSX_STATIC_LIB -I"$PHYSX_ROOT/include" -I"$PHYSX_ROOT/../pxshared/include" -c "$CAPI_SRC" -o "$CAPI_OBJ"
 
 # Link all static libraries into a single shared library
 # Order matters: dependencies first (Foundation), dependents last (PhysX)
-# Use version script to only export PhysX_* C API symbols, hide all C++ symbols
 "$CLANGXX" \
     --target=aarch64-linux-ohos \
     --sysroot="$SYSROOT" \
     -shared \
-    -o "$OUTPUT_DIR/libPhysXCustom.so" \
+    -o "$OUTPUT_DIR/libPhysX.so" \
     "$CAPI_OBJ" \
-    -Wl,--version-script="$PHYSX_ROOT/physx_export.map" \
     -Wl,--whole-archive \
     "$LIB_DIR/libPhysXFoundation.a" \
     "$LIB_DIR/libPhysXPvdSDK.a" \
@@ -65,4 +62,4 @@ echo "Compiling C API wrapper..."
 
 echo ""
 echo "Shared library created successfully!"
-ls -lh "$OUTPUT_DIR/libPhysXCustom.so"
+ls -lh "$OUTPUT_DIR/libPhysX.so"

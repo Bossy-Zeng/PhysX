@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 
 public class PhysXTest : MonoBehaviour
 {
-    private const string DLL_NAME = "PhysXCustom";
+    private const string DLL_NAME = "PhysX";
     [DllImport(DLL_NAME)] private static extern int PhysX_Initialize();
     [DllImport(DLL_NAME)] private static extern void PhysX_Shutdown();
     [DllImport(DLL_NAME)] private static extern int PhysX_IsInitialized();
