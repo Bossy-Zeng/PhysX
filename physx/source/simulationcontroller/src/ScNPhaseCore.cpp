@@ -478,8 +478,11 @@ static PxFilterInfo filterRbCollisionPair(const FilteringContext& context, const
 	isTriggerPair = (trigger0 | trigger1)!=0;
 	if(isTriggerPair)
 	{
-		if(trigger0 && trigger1)	// // trigger-trigger pairs are not supported
-			return filterOutRbCollisionPair(context.mFilterPairManager, filterPairIndex, PxFilterFlag::eKILL);
+		if (trigger0 && trigger1) // // trigger-trigger pairs are not supported
+		{
+			// OH not Support
+			// return filterOutRbCollisionPair(context.mFilterPairManager, filterPairIndex, PxFilterFlag::eKILL);
+		}
 	}
 	else
 	{
