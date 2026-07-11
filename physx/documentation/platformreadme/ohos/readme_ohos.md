@@ -1,4 +1,4 @@
-# PhysX SDK for OpenHarmony (OHOS) ReadMe
+# PhysX SDK 4.1.1 for OpenHarmony (OHOS) ReadMe
 
 ## 平台要求
 
