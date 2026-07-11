@@ -44,7 +44,7 @@ Platform specific information can be found here:
 * [Google Android ARM](http://gameworksdocs.nvidia.com/PhysX/4.1/documentation/platformreadme/android/readme_android.html)
 * [Apple macOS](http://gameworksdocs.nvidia.com/PhysX/4.1/documentation/platformreadme/mac/readme_mac.html)
 * [Apple iOS](http://gameworksdocs.nvidia.com/PhysX/4.1/documentation/platformreadme/ios/readme_ios.html)
- 
+* [OpenHarmony (OHOS)](physx/documentation/platformreadme/ohos/readme_ohos.md)
 
 ## Quick Start Instructions
 
@@ -60,4 +60,18 @@ To build and run the Kapla Demo see [kaplademo/README.md](kaplademo/README.md).
 
 This depot contains external third party open source software copyright their respective owners.  See [kaplademo/README.md](kaplademo/README.md) and [externals/README.md](externals/README.md) for details.
 
-Add OpenHarmony build Support.
+### OpenHarmony (OHOS) Build
+
+This fork adds OpenHarmony (OHOS) cross-compilation support for PhysX 4.1.
+
+**Quick build:**
+
+```bash
+cd physx
+bash build_ohos.sh          # Build static libraries
+bash link_shared.sh          # Link into libPhysXCustom.so
+```
+
+**Output:** `physx/bin/ohos.aarch64/release/libPhysXCustom.so`
+
+See [OHOS ReadMe](physx/documentation/platformreadme/ohos/readme_ohos.md) for detailed instructions.
