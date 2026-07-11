@@ -46,7 +46,7 @@ echo "Compiling C API wrapper..."
     --target=aarch64-linux-ohos \
     --sysroot="$SYSROOT" \
     -shared \
-    -o "$OUTPUT_DIR/libPhysX.so" \
+    -o "$OUTPUT_DIR/libPhysXCustom.so" \
     "$CAPI_OBJ" \
     -Wl,--whole-archive \
     "$LIB_DIR/libPhysXFoundation.a" \
@@ -62,4 +62,4 @@ echo "Compiling C API wrapper..."
 
 echo ""
 echo "Shared library created successfully!"
-ls -lh "$OUTPUT_DIR/libPhysX.so"
+ls -lh "$OUTPUT_DIR/libPhysXCustom.so"
